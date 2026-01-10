@@ -55,3 +55,9 @@ products.forEach((product) => {
 
 let productsGrid = document.querySelector('.products-grid');
 productsGrid.innerHTML = productsHTML;
+
+document.querySelectorAll('.add-to-cart-button').forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log('Added product');
+    });
+});
