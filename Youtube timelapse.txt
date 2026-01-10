@@ -1,0 +1,14 @@
+10:58:57 13 Start the Amazon Project and Intro to Git
+12:28:00 14 Modules
+13:56:33 15 External Libraries
+15:34:37 16 Testing
+15:58:24 Testing Frameworks
+17:36:30 17 Object-Oriented Programming
+18:06:09 Classes
+18:51:50 Inheritance
+19:32:59 18 Intro to Backend, Callbacks, Async Await
+20:30:57 Promises and fetch
+21:12:47 Async Await
+22:14:09 Next steps after this course
+
+Stopped at 11:54:00
