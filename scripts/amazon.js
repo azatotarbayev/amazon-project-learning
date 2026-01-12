@@ -61,6 +61,7 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
         const productId = button.dataset.productId;
         let matchingItem;
 
+        // есть ли такой товар в корзине
         cart.forEach((productObj) => {
           if (productId === productObj.productId)
           {
@@ -80,6 +81,13 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
         });
         }
         
-        console.log(cart);
+        // добавим количество товара в шапку (Header)
+        let cartQuantity = 0;
+
+        cart.forEach((productObj) => {
+          cartQuantity += productObj.quantity;
+        });
+
+        document.querySelector(".cart-quantity").innerHTML = cartQuantity;
     });
 });
