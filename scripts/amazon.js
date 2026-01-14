@@ -1,5 +1,6 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
+// import * as cartModule from '../data/cart.js';
 
 let productsHTML = '';
 
@@ -59,38 +60,25 @@ products.forEach((product) => {
 let productsGrid = document.querySelector('.products-grid');
 productsGrid.innerHTML = productsHTML;
 
+addToCart();
+
+function updateCartQuantity()
+{
+  // добавим количество товара в шапку (Header)
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector(".cart-quantity").innerHTML = cartQuantity;
+}
+
 document.querySelectorAll('.add-to-cart-button').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-        let matchingItem;
-
-        // есть ли такой товар в корзине
-        cart.forEach((productObj) => {
-          if (productId === productObj.productId)
-          {
-            matchingItem = productObj;
-          }
-        });
-
-        if (matchingItem)
-        {
-          matchingItem.quantity++;
-        }
-        else
-        {
-          cart.push({
-          productId: productId,
-          quantity: 1
-        });
-        }
+        addToCart(productId);
         
-        // добавим количество товара в шапку (Header)
-        let cartQuantity = 0;
-
-        cart.forEach((productObj) => {
-          cartQuantity += productObj.quantity;
-        });
-
-        document.querySelector(".cart-quantity").innerHTML = cartQuantity;
+        updateCartQuantity();
     });
 });
